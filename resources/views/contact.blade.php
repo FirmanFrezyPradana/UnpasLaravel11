@@ -1,16 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-    <a href="/blog">blog</a>|
-    <a href="/contact">contact</a>
-    <h1>Halaman constact</h1>
-    <ul>
+<x-layout>
+    <x-slot:title>{{$title}}</x-slot:title>
+  <ul>
         <li>
             <a href="">{{ $email }}</a>
         </li>
@@ -18,5 +8,4 @@
             <a href="">{{ $Instagram }}</a>
         </li>
     </ul>
-</body>
-</html>
+</x-layout>
