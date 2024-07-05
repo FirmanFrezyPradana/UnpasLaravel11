@@ -33,8 +33,8 @@ Route::get('/',function(){
 Route::get('/posts',function(){
     return view('/posts',['title'=>'Halaman Blog','posts'=> Post::all()]);
 });
-Route::get('/posts/{slug}',function($slug){
-        $post =  Post::find($slug);
+Route::get('/posts/{post:slug}',function(Post $post){
+        // $post =  Post::find($slug);
         return view('post',['title'=>'Sigle Post','post'=> $post]);
 });
 Route::get('/about',function(){
