@@ -3,6 +3,7 @@
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Route;
 use App\Models\Post;
+use App\Models\User;
 
 
 // class Post{
@@ -30,16 +31,24 @@ use App\Models\Post;
 Route::get('/',function(){
     return view('/home',['title'=>'Halaman Home']);
 });
+
 Route::get('/posts',function(){
     return view('/posts',['title'=>'Halaman Blog','posts'=> Post::all()]);
 });
+
 Route::get('/posts/{post:slug}',function(Post $post){
         // $post =  Post::find($slug);
         return view('post',['title'=>'Sigle Post','post'=> $post]);
 });
+
 Route::get('/about',function(){
     return view('/about',['title'=>'Halaman About']);
 });
+
+Route::get('/authors/{user}',function(User $user){
+    return view('Posts',['title'=>'Articles by ' .$user->name,'posts'=>$user->posts]);
+});
+
 Route::get('/contact',function(){
     return view('/contact',['title'=>'Halaman Contact','email'=>'laravel11@gmail.com','Instagram'=>'laravel11unpas_']);
 });
